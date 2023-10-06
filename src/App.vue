@@ -1,6 +1,8 @@
 <template>
   <div class="container">
 
+ <Button label="Submit" @buttonClick="submitMethod"></Button>
+
     <div v-show="inProgressAssignments.length" class="card mt-6 mr-6">
       <div class="card-body mx-auto">
         <p><strong> In Progress Assignments </strong></p>
@@ -40,7 +42,13 @@
 </template>
 
 <script>
+import Button from "@/utils/Button.vue";
+
 export default {
+  components:{
+    Button
+  },
+
   data() {
     return {
       assignments: [
@@ -63,6 +71,9 @@ export default {
   methods: {
     toggle() {
       this.active = !this.active;
+    },
+    submitMethod(){
+      console.log("I have submitted")
     }
   }
 }
