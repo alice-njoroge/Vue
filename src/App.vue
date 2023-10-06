@@ -1,7 +1,7 @@
 <template>
  <div class="container">
    <p> {{message.key}}</p>
-   <button type="button" v-on:click="toggle"  class="btn btn-light mb-3"  :class="active ? 'text-green' : 'text-red' " >Base class</button>
+   <button type="button" @click="toggle"  class="btn btn-light mb-3"  :class="active ? 'text-green' : 'text-red' " >Base class</button>
    <div class="card mt-6 mr-6">
      <div class="card-body">
 
