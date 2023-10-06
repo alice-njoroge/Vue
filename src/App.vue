@@ -1,8 +1,7 @@
 <template>
  <div class="container">
    <p> {{message.key}}</p>
-   <button type="button" v-on:click="clickButton"  class="btn btn-light mb-3"  :class="textColor" >Base class</button>
-
+   <button type="button" v-on:click="toggle"  class="btn btn-light mb-3"  :class="active ? 'text-green' : 'text-red' " >Base class</button>
    <div class="card mt-6 mr-6">
      <div class="card-body">
 
@@ -26,13 +25,13 @@ export default {
       message: {
         key :"I am nested"
       },
-      textColor: "text-green"
+      active: false
     }
   },
 
   methods:{
-    clickButton (){
-     this.textColor = "text-red"
+    toggle (){
+     this.active = !this.active;
     }
   }
 }
