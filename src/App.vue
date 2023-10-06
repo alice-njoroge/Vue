@@ -1,47 +1,64 @@
 <template>
- <div class="container">
-   <p> {{message.key}}</p>
-   <button type="button" @click="toggle"  class="btn btn-light mb-3"  :class="active ? 'text-green' : 'text-red' " >Base class</button>
-   <div class="card mt-6 mr-6">
-     <div class="card-body">
+  <div class="container">
 
-       <div class="mb-3">
-         <label for="exampleFormControlInput1" class="form-label">Email address</label>
-         <input type="email" class="form-control" v-model="message.key" id="exampleFormControlInput1" placeholder="name@example.com">
-       </div>
+    <div class="card mt-6 mr-6">
+      <div class="card-body mx-auto">
+        <p><strong> In Progress Assignments </strong></p>
+        <div class="mb-3">
+          <ul>
+            <li v-for="assignment in assignments.filter(a=>!a.complete)">
+              <label>
+                {{ assignment.name }}
+                <input type="checkbox" v-model="assignment.complete" :key="assignment.id">
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-     </div>
-   </div>
 
- </div>
+    <div class="card mt-6 mr-6">
+      <div class="card-body mx-auto">
+        <p><strong> Completed </strong></p>
+        <div class="mb-3">
+          <ul>
+            <li v-for="assignment in assignments.filter(a => a.complete)">
+              <label>
+                {{ assignment.name }}
+                <input type="checkbox" v-model="assignment.complete" :key="assignment.id">
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
 
 
 </template>
 
 <script>
 export default {
-  data(){
-    return{
-      message: {
-        key :"I am nested"
-      },
-      active: false
+  data() {
+    return {
+      assignments: [
+        {name: "study Chapter 5", complete: false, id:1},
+        {name: "Conduct lab experiment", complete: false, id:2},
+        {name: "Research on the Thesis", complete: false, id:3}
+      ]
     }
   },
 
-  methods:{
-    toggle (){
-     this.active = !this.active;
+  methods: {
+    toggle() {
+      this.active = !this.active;
     }
   }
 }
 </script>
 
 <style scoped>
-.text-red {
-  color: red;
-}
-.text-green{
-  color: green;
-}
+
 </style>
