@@ -4,7 +4,10 @@ export default {
   props:{
     label:{
       type:String,
-      default: 'click label'
+      default: 'default label'
+    },
+    for:{
+
     }
   }
 }
