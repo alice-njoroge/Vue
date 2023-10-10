@@ -1,12 +1,15 @@
 <script>
 
+import Assignment from "@/components/Assignments/Assignment.vue";
+
 export default {
   name: "AssignmentList",
+  components: {Assignment},
   props:{
     assignments:Array,
     title:String,
   },
-  
+
 }
 </script>
 
@@ -18,12 +21,12 @@ export default {
         <p><strong> {{title}} </strong></p>
         <div class="mb-3">
           <ul>
-            <li v-for="assignment in assignments">
-              <label>
-                {{ assignment.name }}
-                <input type="checkbox" v-model="assignment.complete" :key="assignment.id">
-              </label>
-            </li>
+            <assignment
+                v-for="assignment in assignments"
+                :key="assignment.id"
+                :assignment="assignment"
+            >
+            </assignment>
           </ul>
         </div>
       </div>
