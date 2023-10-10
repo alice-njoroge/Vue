@@ -13,12 +13,13 @@ export default {
     }
   },
 
-  computed:{
-    completeAssignments(){
-      return this.assignments.filter(a=>a.complete);
-    },
-    inProgressAssignments(){
-      return this.assignments.filter(a=>!a.complete);
+  computed: {
+    filters() {
+      return {
+        inProgress: this.assignments.filter(assignment => assignment.complete),
+        complete: this.assignments.filter(assignment => !assignment.complete)
+      }
+
     }
   },
 
@@ -26,8 +27,8 @@ export default {
 </script>
 
 <template>
-<assignment-list title="In Progress" :assignments="inProgressAssignments"/>
-<assignment-list title="Completed Tasks" :assignments="completeAssignments"/>
+  <assignment-list title="In Progress" :assignments="filters.inProgress"/>
+  <assignment-list title="Completed Tasks" :assignments="filters.complete"/>
 
 </template>
 
