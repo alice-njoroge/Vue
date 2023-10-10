@@ -3,17 +3,25 @@ import Label from "@/utils/Label.vue";
 
 export default {
   name: "button",
-  components:{
+  components: {
     Label
   },
-  props:{
-    label:{
-      type:String,
+  props: {
+    label: {
+      type: String,
       default: 'Click me'
+    },
+    isProcessing: {
+      type: Boolean,
+      default: false
+    },
+    buttonType:{
+      type:String,
+      default:'button'
     }
   },
-  methods:{
-    onClick(){
+  methods: {
+    onClick() {
       this.$emit('buttonClick');
     }
   }
@@ -22,7 +30,18 @@ export default {
 </script>
 
 <template>
-<button @click="onClick"> <Label :label="label" ></Label> </button>
+  <button
+      @click="onClick"
+      :type="buttonType"
+      :class="{
+        'border rounded m-2 px-5 py-2 ':true,
+        'is-loading': isProcessing
+        }"
+      :disabled="isProcessing"
+  >
+    <Label :label="label"></Label>
+  </button>
+
 </template>
 
 <style scoped>

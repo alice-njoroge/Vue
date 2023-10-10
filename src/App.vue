@@ -34,7 +34,7 @@
     </div>
 
     <div class="card-body mx-auto">
-      <Button class="m-2" label="Submit" @buttonClick="submitMethod"/>
+      <Button :is-processing="false" button-type="button" label="Submit" @buttonClick="submitMethod"/>
       <Form/>
 
     </div>
