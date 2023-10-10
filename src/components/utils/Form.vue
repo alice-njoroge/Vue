@@ -1,8 +1,8 @@
 <script>
 
-import Input from "@/utils/Input.vue";
-import Button from "@/utils/Button.vue";
-import Checkbox from "@/utils/Checkbox.vue";
+import Input from "@/components/utils/Input.vue";
+import Button from "@/components/utils/Button.vue";
+import Checkbox from "@/components/utils/Checkbox.vue";
 
 export default {
   name: "Form",

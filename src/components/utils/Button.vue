@@ -1,5 +1,5 @@
 <script>
-import Label from "@/utils/Label.vue";
+import Label from "@/components/utils/Label.vue";
 
 export default {
   name: "button",
