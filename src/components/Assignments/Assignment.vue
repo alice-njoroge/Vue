@@ -8,7 +8,7 @@ export default {
 </script>
 
 <template>
-  <li >
+  <li class="border-top py-2  d-flex justify-content-between">
     <label>
       {{ assignment.name }}
       <input
