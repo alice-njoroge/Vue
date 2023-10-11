@@ -16,9 +16,7 @@ export default {
 <template>
 
   <!-- TODO: extract the container class and the card into another component-->
-  <div class="container my-5">
-    <div v-show="assignments.length" class="card mt-6 mr-6">
-      <div class="card-body mx-auto">
+    <div v-show="assignments.length">
         <p><strong> {{title}} </strong></p>
         <div class="mb-3">
           <ul>
@@ -31,8 +29,7 @@ export default {
           </ul>
         </div>
       </div>
-    </div>
-  </div>
+
 
 </template>
 

@@ -26,6 +26,11 @@ export default {
       type:String,
       default:''
     }
+  },
+  methods:{
+    onInput(evt){
+      this.$emit('keyInput', evt.target.value)
+    }
   }
 }
 </script>
@@ -33,7 +38,7 @@ export default {
 <template>
   <div class="form-group">
     <label :for="inputId">{{labelName}}</label>
-    <input :type="inputType" class="form-control" :id="inputId" aria-describedby="smallHelp" :placeholder="inputPlaceholder">
+    <input @input="onInput" :type="inputType" class="form-control" :id="inputId" aria-describedby="smallHelp" :placeholder="inputPlaceholder">
     <small v-if="useSmall" id="smallHelp" class="form-text text-muted">{{smallMessage}}</small>
   </div>
 </template>
