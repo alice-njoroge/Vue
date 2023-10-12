@@ -2,11 +2,16 @@
 
 import Assignment from "@/components/Assignments/Assignment.vue";
 import Button from "@/components/utils/Button.vue";
+import AssignmentTags from "@/components/Assignments/AssignmentTags.vue";
 
 
 export default {
   name: "AssignmentList",
-  components: {Button, Assignment},
+  components: {
+    Button,
+    Assignment,
+    AssignmentTags
+  },
   props: {
     assignments: Array,
     title: String,
@@ -20,9 +25,7 @@ export default {
   },
 
   computed: {
-    tags() {
-      return ['all', ...new Set(this.assignments.map(a => a.tag))];
-    },
+
     filteredAssignments() {
       if (this.currentTag === 'all') {
         return this.assignments;
@@ -38,17 +41,13 @@ export default {
 
   <!-- TODO: extract the container class and the card into another component-->
   <div v-show="assignments.length">
+    <assignment-tags
+        :initial-tags="assignments.map(a => a.tag)"
+        :current-tag="currentTag"
+        @change="currentTag = $event"
+    >
 
-      <Button
-          v-for="tag in tags"
-          :label="tag"
-          :class = "{
-            'btn btn-primary': tag === currentTag
-          }"
-          @click ="currentTag = tag"
-      >
-
-      </Button>
+    </assignment-tags>
 
     <p><strong> {{ title }} <span> ({{ assignments.length }}) </span> </strong></p>
     <div class="mb-3">
