@@ -25,11 +25,20 @@ export default {
     smallMessage:{
       type:String,
       default:''
+    },
+    value:{
+      type:String,
+      default:''
+    }
+  },
+  data(){
+    return{
+      val: this.value
     }
   },
   methods:{
-    onInput(evt){
-      this.$emit('keyInput', evt.target.value)
+    onInput(){
+      this.$emit('keyInput', this.val);
     }
   }
 }
@@ -38,7 +47,7 @@ export default {
 <template>
   <div class="form-group">
     <label :for="inputId">{{labelName}}</label>
-    <input @input="onInput" :type="inputType" class="form-control" :id="inputId" aria-describedby="smallHelp" :placeholder="inputPlaceholder">
+    <input v-model="val" @input="onInput" :type="inputType" class="form-control" :id="inputId" aria-describedby="smallHelp" :placeholder="inputPlaceholder">
     <small v-if="useSmall" id="smallHelp" class="form-text text-muted">{{smallMessage}}</small>
   </div>
 </template>

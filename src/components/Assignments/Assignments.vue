@@ -1,21 +1,19 @@
 <script>
 import AssignmentList from "@/components/Assignments/AssignmentList.vue";
-import Input from "@/components/utils/Input.vue";
-import Button from "@/components/utils/Button.vue";
+import AssignmentCreate from "@/components/Assignments/AssignmentCreate.vue";
+
 
 export default {
   components: {
-    Input,
+    AssignmentCreate,
     AssignmentList,
-    Button
   },
   data() {
     return {
-      newAssignment : '',
       assignments: [
-        {name: "study Chapter 5", complete: false, id: 1},
-        {name: "Conduct lab experiment", complete: false, id: 2},
-        {name: "Research on the Thesis", complete: false, id: 3}
+        {name: "study Chapter 5", complete: false, id: 1, tag: 'Math'},
+        {name: "Conduct lab experiment", complete: false, id: 2, tag: 'Math'},
+        {name: "Research on the Thesis", complete: false, id: 3, tag: 'Science'}
       ],
     }
   },
@@ -31,18 +29,14 @@ export default {
   },
 
   methods:{
-    addAssigment(){
+    add(name){
       this.assignments.push(
           {
-            name: this.newAssignment,
+            name: name,
             complete: false,
             id: this.assignments.length + 1
           });
-      this.newAssignment = '';
     },
-    dataInput(value){
-      this.newAssignment = value;
-    }
   }
 
 }
@@ -51,14 +45,9 @@ export default {
 <template>
   <assignment-list title="In Progress" :assignments="filters.inProgress"/>
   <assignment-list title="Completed Tasks" :assignments="filters.complete"/>
+  <assignment-create @add="add"></assignment-create>
 
   <hr>
-
-  <form  @submit.prevent="addAssigment">
-    <Input @key-input="dataInput" label-name="Add a New Assignment" placeholder="new task here..."></Input>
-    <Button label="Submit" button-type="submit"></Button>
-  </form>
-
 
 </template>
 
