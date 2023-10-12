@@ -1,10 +1,12 @@
 <script>
 
 import Assignment from "@/components/Assignments/Assignment.vue";
+import Button from "@/components/utils/Button.vue";
+
 
 export default {
   name: "AssignmentList",
-  components: {Assignment},
+  components: {Button, Assignment},
   props: {
     assignments: Array,
     title: String,
@@ -36,15 +38,18 @@ export default {
 
   <!-- TODO: extract the container class and the card into another component-->
   <div v-show="assignments.length">
-    <div class="div d-flex justify-content-center">
-      <button
-          class="small mx-2 px-2"
-          :class="{
-           'btn btn-primary': tag === currentTag}"
+
+      <Button
           v-for="tag in tags"
-          @click="currentTag = tag"> {{ tag }}
-      </button>
-    </div>
+          :label="tag"
+          :class = "{
+            'btn btn-primary': tag === currentTag
+          }"
+          @click ="currentTag = tag"
+      >
+
+      </Button>
+
     <p><strong> {{ title }} <span> ({{ assignments.length }}) </span> </strong></p>
     <div class="mb-3">
       <ul>
