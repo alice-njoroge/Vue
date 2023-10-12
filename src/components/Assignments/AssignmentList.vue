@@ -43,8 +43,7 @@ export default {
   <div v-show="assignments.length">
     <assignment-tags
         :initial-tags="assignments.map(a => a.tag)"
-        :current-tag="currentTag"
-        @change="currentTag = $event"
+        v-model="currentTag"
     >
 
     </assignment-tags>

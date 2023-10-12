@@ -6,7 +6,7 @@ export default {
   name: "AssignmentTags",
   props:{
     initialTags: Array,
-    currentTag: ''
+    modelValue: String
 
   },
 
@@ -22,8 +22,8 @@ export default {
   <button
       class="small mx-2 px-2"
       v-for="tag in tags"
-      :class="{ 'btn btn-primary': tag === currentTag }"
-      @click="$emit('change', tag)"
+      :class="{ 'btn btn-primary': tag === modelValue }"
+      @click="$emit('update:modelValue', tag)"
   > {{tag}}
   </button>
 
