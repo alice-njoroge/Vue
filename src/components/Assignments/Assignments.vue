@@ -24,11 +24,10 @@ export default {
     }
   },
   created() {
-    fetch('http://localhost:3000/assignments')
-        .then(response => response.json())
-        .then(assignments => {
-          this.assignments = assignments;
-        });
+    this.axios.get('http://localhost:3000/assignments')
+        .then(response =>{
+          this.assignments = response.data
+        })
   },
 
   methods:{
