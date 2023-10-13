@@ -34,7 +34,7 @@ export default {
           url: post.url,
           byline: post.byline,
           published_date: post.published_date,
-          image_url:post.multimedia[0].url
+          image_url: post.multimedia && post.multimedia[0].url
         }));
       }catch (err) {
         if (err.response) {
