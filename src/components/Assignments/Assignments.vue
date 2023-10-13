@@ -10,11 +10,7 @@ export default {
   },
   data() {
     return {
-      assignments: [
-        {name: "study Chapter 5", complete: false, id: 1, tag: 'Math'},
-        {name: "Conduct lab experiment", complete: false, id: 2, tag: 'Math'},
-        {name: "Research on the Thesis", complete: false, id: 3, tag: 'Science'}
-      ],
+      assignments: []
     }
   },
 
@@ -26,6 +22,13 @@ export default {
       }
 
     }
+  },
+  created() {
+    fetch('http://localhost:3000/assignments')
+        .then(response => response.json())
+        .then(assignments => {
+          this.assignments = assignments;
+        });
   },
 
   methods:{

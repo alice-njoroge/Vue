@@ -1,0 +1,22 @@
+{
+  "assignments": [
+    {
+      "name": "study Chapter 5",
+      "complete": false,
+      "id": 1,
+      "tag": "Math"
+    },
+    {
+      "name": "submit task 2",
+      "complete": false,
+      "id": 1,
+      "tag": "Math"
+    },
+    {
+      "name": "conduct the experiment",
+      "complete": false,
+      "id": 1,
+      "tag": "Science"
+    }
+  ]
+}
