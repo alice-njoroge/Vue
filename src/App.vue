@@ -1,10 +1,7 @@
 <template>
+  <vue-school-nav-bar></vue-school-nav-bar>
   <div class="container">
-    <heading title="Title Text | Goes Here "></heading>
-
-    <router-link to="/"></router-link>
-    <router-link to="/about"></router-link>
-
+    <the-navigation></the-navigation>
     <router-view></router-view>
 
   </div>
@@ -17,11 +14,14 @@ import Layout from "@/components/nytimes/Layout.vue";
 import Heading from "@/components/utils/Heading.vue";
 import Home from "@/pages/Home.vue";
 import About from "@/pages/About.vue";
-
+import TheNavigation from "@/routes/TheNavigation.vue";
+import VueSchoolNavBar from "@/components/utils/VueSchoolNavBar.vue";
 
 
 export default {
-  components:{
+  components: {
+    VueSchoolNavBar,
+    TheNavigation,
     About,
     Home,
     Heading,
