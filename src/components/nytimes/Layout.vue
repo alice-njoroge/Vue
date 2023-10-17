@@ -1,5 +1,5 @@
 <script>
-import Heading from "@/components/nytimes/Heading.vue";
+import Heading from "@/components/utils/Heading.vue";
 import NewsCard from "@/components/nytimes/NewsCard.vue";
 import NewsList from "@/components/nytimes/NewsList.vue";
 import axios from "axios";
@@ -17,7 +17,8 @@ export default {
   data(){
     return{
       section:"home",
-      posts:[]
+      posts:[],
+      title:''
     }
   },
   methods:{
@@ -51,14 +52,14 @@ export default {
       }
     }
   },
-  mounted() {
+  beforeMount() {
     this.fetchNews()
   }
 }
 </script>
 
 <template>
-  <heading></heading>
+  <heading title="Vue News | NYTimes Edition"></heading>
   <news-list :posts="posts"></news-list>
 
 </template>

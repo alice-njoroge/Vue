@@ -2,6 +2,9 @@
 
 export default {
   name: "Heading",
+  props:{
+    title:''
+  }
 
 }
 </script>
@@ -9,7 +12,7 @@ export default {
 <template>
   <div class="card-body mt-3 mx-12">
     <nav class="navbar navbar-light bg-light justify-content-center">
-      <span class="navbar-brand text-center mb-0 h1">Vue News | NYTimes Edition </span>
+      <span class="navbar-brand text-center mb-0 h1">{{title}} </span>
     </nav>
   </div>
 </template>
