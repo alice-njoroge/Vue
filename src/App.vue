@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <heading title="Title Text | Goes Here "></heading>
-    
+
     <router-link to="/"></router-link>
     <router-link to="/about"></router-link>
 
